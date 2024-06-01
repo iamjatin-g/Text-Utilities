@@ -52,13 +52,25 @@ export default function TextForm(props) {
     }
 
     const displayVowels = () => {
-        let newText = text.match(/[aeiou]/g).length;
-        document.getElementById("display").innerHTML = "Number of Vowels: " + newText + " vowels";
+        let matches = text.match(/[aeiou]/g);
+        if (matches) {
+            let newText = matches.length;
+            document.getElementById("display").innerHTML = "Number of Vowels: " + newText + " vowels";
+        }
+        else {
+            document.getElementById("display").innerHTML = "No Vowels Found!"; 
+        }
     }
 
     const displayConsonants = () => {
-        let newText = text.match(/[bcdfghjklmnpqrstvwxyz]/g).length;
-        document.getElementById("display").innerHTML = "Number of Consonants: " + newText + " consonants";
+        let matches = text.match(/[bcdfghjklmnpqrstvwxyz]/g);
+        if (matches) {
+            let newText = matches.length;
+            document.getElementById("display").innerHTML = "Number of Consonants: " + newText + " consonants";
+        }
+        else {
+            document.getElementById("display").innerHTML = "No Consonants Found!"; 
+        }
     }  
 
     const displaySpaces = () => {
@@ -67,15 +79,22 @@ export default function TextForm(props) {
     }
 
     const displaySpecial = () => {
-        let newText = text.match(/[^a-zA-Z0-9 ]/g).length;
+        let matches = text.match(/[^a-zA-Z0-9 ]/g);
         // setText(newText);
-        document.getElementById("display").innerHTML = "Number of Special Characters: " + newText + " special characters";
+        if (matches) {
+            let newText = matches.length;
+           document.getElementById("display").innerHTML = "Number of Special Characters: " + newText + " special characters"; 
+        }
+        else {
+            document.getElementById("display").innerHTML = "No Special Characters Found!"; 
+        }
     }
 
     const displayNum = () => {
-        let newText = text.match(/[0-9]/g).length;
+        let matches = text.match(/[0-9]/g);
         // setText(newText);
-        if (newText>0) {
+        if (matches) {
+            let newText = matches.length;
            document.getElementById("display").innerHTML = "Number of Numbers: " + newText + " numbers"; 
         }
         else {
@@ -84,9 +103,14 @@ export default function TextForm(props) {
     }
 
     const displayPunc = () => {
-        let newText = text.match(/[.,/#!$%^&*;:{}=\-_`~()]/g).length;
-        // setText(newText);
-        document.getElementById("display").innerHTML = "Number of Punctuation Marks: " + newText + " punctuation marks";
+        let matches = text.match(/[.,/#!$%^&*;:{}=\-_`~()]/g);
+        if (matches) {
+            let newText = matches.length;
+            document.getElementById("display").innerHTML = "Number of Punctuation Marks: " + newText + " punctuation marks";
+        }
+        else {
+            document.getElementById("display").innerHTML = "No Punctuation Marks Found!"; 
+        }
     }
 
     const readTime = () => {

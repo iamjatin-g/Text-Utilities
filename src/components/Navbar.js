@@ -15,10 +15,10 @@ export default function Navbar(props) {
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className="nav-link active" aria-current="page" href="/">
+                        <a className="nav-link" aria-current="page">
                             <button type="button" className={`btn btn-outline-${props.btnMode} mx-3`}>Utilities</button>
                         </a>
-                        <a className="nav-link" href="/">
+                        <a className="nav-link">
                             <button type="button" className={`btn btn-outline-${props.btnMode} mx-3`}>Typing Test</button>
                         </a>
                         {/* <a className="nav-link" href="/">
