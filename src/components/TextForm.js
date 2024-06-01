@@ -9,156 +9,268 @@ export default function TextForm(props) {
         setText(event.target.value);
     }
 
+    function noText() {
+        document.getElementById("display").innerHTML = "Please Enter Text!";
+    }
+
+    function content(content){ 
+        document.getElementById("display").innerHTML = "Your Content: <br></br>" + content;
+    }
+
     const upClick = () => {
-        let newText = text.toUpperCase();
-        // setText(newText);
-        content(newText);
+        if (text) {
+            let newText = text.toUpperCase();
+            content(newText);
+        }
+        else {
+            noText();
+        }
     }
 
     const lowClick = () => {
-        let newText = text.toLowerCase();
-        // setText(newText);
-        content(newText);
+        if (text) {
+            let newText = text.toLowerCase();
+            content(newText);
+        }
+        else {
+            noText();
+        }
     }
 
     const clearClick = () => {
-        let newText = "";
-        setText(newText);
-        document.getElementById("display").innerHTML = "";
+        if (text) {
+            let newText = "";
+            setText(newText);
+            document.getElementById("display").innerHTML = "";
+        }
+        else {
+            noText();
+        }
     }
 
     const copyClick = () => {
-        let newText = text;
-        navigator.clipboard.writeText(newText);
+        if (text) {
+            let newText = text;
+            navigator.clipboard.writeText(newText);
+        }
+        else {
+            noText();
+        }
     }
 
     const displayClick = () => {
-        content(text);
+        if (text) {
+            content(text);
+        }
+        else {
+            noText();
+        }
     }
 
     const displayWords = () => {
-        let newText = text.split(" ").length;
-        document.getElementById("display").innerHTML = "Number of Words: " + newText + " words";
+        if (text) {
+            let newText = text.split(" ").length;
+            document.getElementById("display").innerHTML = "Number of Words: " + newText + " words";
+        }
+        else {
+            noText();
+        }
     }
 
     const displayLength = () => {
-        let newText = text.length;
-        document.getElementById("display").innerHTML = "Length: " + newText + " characters";
+        if (text) {
+            let newText = text.length;
+            document.getElementById("display").innerHTML = "Length: " + newText + " characters";
+        }
+        else {
+            noText();
+        }
     }
 
     const displaySenLen = () => {
-        let newText = text.split(".").length;
-        document.getElementById("display").innerHTML = "Number of Sentences: " + newText + " sentences";
+        if (text) {
+            let newText = text.split(".").length;
+            document.getElementById("display").innerHTML = "Number of Sentences: " + newText + " sentences";
+        }
+        else {
+            noText();
+        }
     }
 
     const displayVowels = () => {
-        let matches = text.match(/[aeiou]/g);
-        if (matches) {
-            let newText = matches.length;
-            document.getElementById("display").innerHTML = "Number of Vowels: " + newText + " vowels";
+        if (text) {
+            let matches = text.match(/[aeiou]/g);
+            if (matches) {
+                let newText = matches.length;
+                document.getElementById("display").innerHTML = "Number of Vowels: " + newText + " vowels";
+            }
+            else {
+                document.getElementById("display").innerHTML = "No Vowels Found!"; 
+            }
         }
         else {
-            document.getElementById("display").innerHTML = "No Vowels Found!"; 
+            noText();
         }
     }
 
     const displayConsonants = () => {
-        let matches = text.match(/[bcdfghjklmnpqrstvwxyz]/g);
-        if (matches) {
-            let newText = matches.length;
-            document.getElementById("display").innerHTML = "Number of Consonants: " + newText + " consonants";
-        }
-        else {
-            document.getElementById("display").innerHTML = "No Consonants Found!"; 
+        if (text) {
+            let matches = text.match(/[bcdfghjklmnpqrstvwxyz]/g);
+            if (matches) {
+                let newText = matches.length;
+                document.getElementById("display").innerHTML = "Number of Consonants: " + newText + " consonants";
+            }
+            else {
+                document.getElementById("display").innerHTML = "No Consonants Found!"; 
+            }
         }
     }  
 
     const displaySpaces = () => {
-        let newText = text.split(" ").length;
-        document.getElementById("display").innerHTML = "Number of Spaces: " + newText + " spaces";
+        if (text) {
+            let newText = text.split(" ").length;
+            document.getElementById("display").innerHTML = "Number of Spaces: " + newText + " spaces";
+        }
+        else {
+            noText();
+        }
     }
 
     const displaySpecial = () => {
-        let matches = text.match(/[^a-zA-Z0-9 ]/g);
-        // setText(newText);
-        if (matches) {
-            let newText = matches.length;
-           document.getElementById("display").innerHTML = "Number of Special Characters: " + newText + " special characters"; 
+        if (text) {
+            let matches = text.match(/[^a-zA-Z0-9 ]/g);
+            // setText(newText);
+            if (matches) {
+                let newText = matches.length;
+                document.getElementById("display").innerHTML = "Number of Special Characters: " + newText + " special characters";
+            }
+            else {
+                document.getElementById("display").innerHTML = "No Special Characters Found!";
+            }
         }
         else {
-            document.getElementById("display").innerHTML = "No Special Characters Found!"; 
+            noText();
         }
     }
 
     const displayNum = () => {
-        let matches = text.match(/[0-9]/g);
-        // setText(newText);
-        if (matches) {
-            let newText = matches.length;
-           document.getElementById("display").innerHTML = "Number of Numbers: " + newText + " numbers"; 
+        if (text) {
+            let matches = text.match(/[0-9]/g);
+            // setText(newText);
+            if (matches) {
+                let newText = matches.length;
+                document.getElementById("display").innerHTML = "Number of Numbers: " + newText + " numbers"; 
+            }
+            else {
+                document.getElementById("display").innerHTML = "No Numbers Found!"; 
+            }
         }
         else {
-            document.getElementById("display").innerHTML = "No Numbers Found!"; 
+            noText();
         }
     }
 
     const displayPunc = () => {
-        let matches = text.match(/[.,/#!$%^&*;:{}=\-_`~()]/g);
-        if (matches) {
-            let newText = matches.length;
-            document.getElementById("display").innerHTML = "Number of Punctuation Marks: " + newText + " punctuation marks";
+        if (text) {
+            let matches = text.match(/[.,/#!$%^&*;:{}=\-_`~()]/g);
+            if (matches) {
+                let newText = matches.length;
+                document.getElementById("display").innerHTML = "Number of Punctuation Marks: " + newText + " punctuation marks";
+            }
+            else {
+                document.getElementById("display").innerHTML = "No Punctuation Marks Found!"; 
+            }
         }
         else {
-            document.getElementById("display").innerHTML = "No Punctuation Marks Found!"; 
+            noText();
         }
     }
 
     const readTime = () => {
-        let newText = 0.008 * text.split(" ").length;
-        document.getElementById("display").innerHTML = "Time to Read the Content: <br></br>" + newText + " minutes";
+        if (text) {
+            let newText = 0.008 * text.split(" ").length;
+            document.getElementById("display").innerHTML = "Time to Read the Content: <br></br>" + newText + " minutes";
+        }
+        else {
+            noText();
+        }
     }
 
     const extraSpaces = () => {
-        let newText = text.split(/[ ]+/);
-        // setText(newText.join(" "));
-        content(newText);
+        if (text) {
+            let newText = text.split(/[ ]+/);
+            // setText(newText.join(" "));
+            content(newText);
+        }
+        else {
+            noText();
+        }
     }
 
     const removeSpaces = () => {
-        let newText = text.split(" ").join("");
-        // setText(newText);
-        content(newText);
-
+        if (text) {
+            let newText = text.split(" ").join("");
+            // setText(newText);
+            content(newText);
+        }
+        else {
+            noText();
+        }
     }
 
     const removePunc = () => {
-        let newText = text.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"");
-        // setText(newText);
-        content(newText);
+        if (text) {
+            let newText = text.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"");
+            // setText(newText);
+            content(newText);
+        }
+        else {
+            noText();
+        }
     }
 
     const removeSpecial = () => {
-        let newText = text.replace(/[^a-zA-Z0-9 ]/g,"");
-        // setText(newText);
-        content(newText);
+        if (text) {
+            let newText = text.replace(/[^a-zA-Z0-9 ]/g,"");
+            // setText(newText);
+            content(newText);
+        }
+        else {
+            noText();
+        }
     }
 
     const removeVowels = () => {
-        let newText = text.replace(/[aeiou]/g,"");
-        // setText(newText);
-        content(newText);
+        if (text) {
+            let newText = text.replace(/[aeiou]/g,"");
+            // setText(newText);
+            content(newText);
+        }
+        else {
+            noText();
+        }
     }
 
     const removeConsonants = () => {
-        let newText = text.replace(/[bcdfghjklmnpqrstvwxyz]/g,"");
-        // setText(newText);
-        content(newText);
+        if (text) {
+            let newText = text.replace(/[bcdfghjklmnpqrstvwxyz]/g,"");
+            // setText(newText);
+            content(newText);
+        }
+        else {
+            noText();
+        }
     }  
 
     const removeNum = () => {
-        let newText = text.replace(/[0-9]/g,"");
-        // setText(newText);
-        content(newText);
+        if (text) {
+            let newText = text.replace(/[0-9]/g,"");
+            // setText(newText);
+            content(newText);
+        }
+        else {
+            noText();
+        }
     }
 
     // const listen = () => {
@@ -168,16 +280,14 @@ export default function TextForm(props) {
     // }
 
     const inverseClick = () => {
-        let newText = "";
-        for (let i = text.length - 1; i >= 0; i--) {
-            newText += text[i];
+        if (text) {
+            let newText = text.split("").reverse().join("");
+            // setText(newText);
+            content(newText);
         }
-        // setText(newText);
-        content(newText);
-    }
-
-    function content(content){ 
-        document.getElementById("display").innerHTML = "Your Content: <br></br>" + content;
+        else {
+            noText();
+        }
     }
 
     // const [fWord, findWord] = useState("");
@@ -193,13 +303,25 @@ export default function TextForm(props) {
     //     let newText = text.replaceAll(fWord,rWord);
     //     setText(newText);
     // };
+    function githubLink() {
+        window.open("https://github.com/iamjatin-g");
+    }
+    function linkedinLink() {
+        window.open("https://www.linkedin.com/in/iamjatin-g");
+    }
+    function twitterLink() {
+        window.open("https://x.com/iamjatin_g");
+    }
   return (
       <>
         <div className="form-group mx-5 my-3">
-            <h5>Enter your Text:</h5>
+            <h5 style={{cursor: "default"}}>Enter your Text:</h5>
               <textarea className={`form-control my-3 bg-${props.mode}`} style={{color: props.mode === 'light'?'black':'white'}} rows="18" value={text} onChange={onChanges}></textarea>
         </div>
         <div className="d-flex justify-content-evenly flex-wrap mx-5 my-1">
+            <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={displayClick} title="Display Content">
+                <i className="fa-regular fa-file-lines me-2"></i>Display
+            </button>
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={upClick} title="Upper Case">
                   <i className="fa-solid fa-angle-up me-2"></i>Capital
             </button>
@@ -212,9 +334,6 @@ export default function TextForm(props) {
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={copyClick} title="Copy">
                 <i className="fa-regular fa-clipboard me-2"></i>Copy
             </button>
-            <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={displayClick} title="Display Content">
-                <i className="fa-regular fa-file-lines me-2"></i>Display
-            </button>
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={displayLength} title="Display Length">
                 <i className="fa-solid fa-text-height me-2"></i>Length
             </button>
@@ -224,9 +343,9 @@ export default function TextForm(props) {
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={readTime} title="Time to Read">
                 <i className="fa-regular fa-clock me-2"></i>Time
             </button>
-            <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} title="Listen">
+            {/* <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} title="Listen">
                 <i className="fa-solid fa-headphones me-2"></i>Listen
-            </button>
+            </button> */}
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={displaySenLen} title="Display Sentences">
                 <i className="fa-solid fa-strikethrough me-2"></i>Sentences
             </button>
@@ -269,21 +388,27 @@ export default function TextForm(props) {
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={removeNum} title="Remove Numbers">
                 <i className="fa-solid fa-cruzeiro-sign me-2"></i>Remove Numbers
             </button>
-            
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={removePunc} title="Remove Punctuations">
                 <i className="fa-solid fa-hashtag me-2"></i>Remove Punctuations
             </button>
         </div>
-        <div className="d-flex"><span id="display" className='mx-5 my-3 mb-5'></span></div>
+        <div className="form-group mx-5 my-3">
+            <span id="display" className={`form-control my-3 bg-${props.mode}`} style={{color: props.mode === 'light'?'black':'white', height: "300px"}}></span>
+        </div>
         <footer className="mt-5 text-center">
-            <p>Copyright &copy; 2024</p>
-            <p>Developed by  <a href="/" target="_blank" rel="noreferrer">Jatin</a></p>
-            <p><a href="/" target="_blank" rel="noreferrer">Github Repo</a></p>
-            <div className="mt-5 text-center">
-                <a href="https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA" target="_blank" rel="noreferrer">
-                    <i className="fab fa-youtube"></i>
-                </a>
-            </div>
+            <p style={{cursor: "default"}}>Copyright &copy; 2024</p>
+            <p style={{cursor: "default"}}>Developed by Jatin</p>
+            <div className="m-4">
+                <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={githubLink} title="Reverse Content">
+                    <i className="fa-brands fa-github"></i>
+                </button>
+                <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={linkedinLink} title="Reverse Content">
+                    <i className="fa-brands fa-linkedin"></i>
+                </button>
+                <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={twitterLink} title="Reverse Content">
+                    <i className="fa-brands fa-twitter"></i>
+                </button>
+            </div> 
         </footer>
       </>
   )

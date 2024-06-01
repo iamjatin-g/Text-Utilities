@@ -4,7 +4,7 @@ export default function Navbar(props) {
       <>
             <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} py-3`}>
             <div className="container-fluid">
-                <span className="navbar-brand">
+                <span className="navbar-brand" style={{cursor: "default"}}>
                     <button className={`btn btn-outline-${props.btnMode} mx-3`}>
                     <i className="fa-solid fa-t"><i className="fa-solid fa-u"></i></i>
                     </button>
@@ -15,7 +15,7 @@ export default function Navbar(props) {
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className="nav-link" aria-current="page">
+                        <a className="nav-link">
                             <button type="button" className={`btn btn-outline-${props.btnMode} mx-3`}>Utilities</button>
                         </a>
                         <a className="nav-link">
