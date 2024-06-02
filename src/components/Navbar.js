@@ -15,7 +15,7 @@ export default function Navbar(props) {
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className="nav-link" href="#">
+                        <a className="nav-link" href="https://iamjatin-g.github.io/Text-Utilities/">
                             <button type="button" className={`btn btn-outline-${props.btnMode} mx-3`}>Utilities</button>
                         </a>
                         <a className="nav-link" href="#">
