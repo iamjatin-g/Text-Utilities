@@ -315,8 +315,8 @@ export default function TextForm(props) {
   return (
       <>
         <div className="form-group mx-5 my-3">
-            <h5 style={{cursor: "default"}}>Enter your Text:</h5>
-              <textarea className={`form-control my-3 bg-${props.mode}`} style={{color: props.mode === 'light'?'black':'white'}} rows="18" value={text} onChange={onChanges}></textarea>
+            <h5 style={{cursor: "default", fontFamily: "Comfortaa", fontWeight: "700"}}>Enter your Text:</h5>
+              <textarea className={`form-control my-3 bg-${props.mode}`} style={{color: props.mode === 'light'?'black':'white', resize: "none", fontFamily: "Comfortaa"}} rows="18" value={text} onChange={onChanges}></textarea>
         </div>
         <div className="d-flex justify-content-evenly flex-wrap mx-5 my-1">
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={displayClick} title="Display Content">
@@ -343,6 +343,9 @@ export default function TextForm(props) {
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={readTime} title="Time to Read">
                 <i className="fa-regular fa-clock me-2"></i>Time
             </button>
+            <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={inverseClick} title="Reverse Content">
+                <i className="fa-solid fa-clock-rotate-left me-2"></i>Reverse
+            </button>
             {/* <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} title="Listen">
                 <i className="fa-solid fa-headphones me-2"></i>Listen
             </button> */}
@@ -352,11 +355,11 @@ export default function TextForm(props) {
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={extraSpaces} title="Remove Extra Spaces">
                 <i className="fa-solid fa-text-width me-2"></i>Extra Spaces
             </button>
-            <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={displayPunc} title="Display Punctuations">
-                <i className="fa-brands fa-product-hunt me-2"></i>Punctuations
-            </button>
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={displayConsonants} title="Display Consonants">
                 <i className="fa-regular fa-copyright me-2"></i>Consonants
+            </button>
+            <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={displayPunc} title="Display Punctuations">
+                <i className="fa-brands fa-product-hunt me-2"></i>Punctuations
             </button>
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={displayVowels} title="Display Vowels">
                 <i className="fa-brands fa-vimeo-v me-2"></i>Vowels
@@ -379,25 +382,22 @@ export default function TextForm(props) {
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={displayNum} title="Display Numbers">
                 <i className="fa-brands fa-creative-commons-zero me-2"></i>Numbers
             </button>
-            <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={inverseClick} title="Reverse Content">
-                <i className="fa-solid fa-clock-rotate-left me-2"></i>Reverse
+            <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={removeNum} title="Remove Numbers">
+                <i className="fa-solid fa-cruzeiro-sign me-2"></i>Remove Numbers
             </button>
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={removeConsonants} title="Remove Consonants">
                 <i className="fa-brands fa-creative-commons-pd me-2"></i>Remove Consonants
-            </button>
-            <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={removeNum} title="Remove Numbers">
-                <i className="fa-solid fa-cruzeiro-sign me-2"></i>Remove Numbers
             </button>
             <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={removePunc} title="Remove Punctuations">
                 <i className="fa-solid fa-hashtag me-2"></i>Remove Punctuations
             </button>
         </div>
         <div className="form-group mx-5 my-3">
-            <span id="display" className={`form-control my-3 bg-${props.mode}`} style={{color: props.mode === 'light'?'black':'white', height: "300px"}}></span>
+            <span id="display" className={`form-control my-3 bg-${props.mode}`} style={{color: props.mode === 'light'?'black':'white', height: "300px", fontFamily: "Comfortaa"}}></span>
         </div>
         <footer className="mt-5 text-center">
-            <p style={{cursor: "default"}}>Copyright &copy; 2024</p>
-            <p style={{cursor: "default"}}>Developed by Jatin</p>
+            <p style={{cursor: "default", fontFamily: "Comfortaa", fontWeight: "700"}}>Copyright &copy; 2024</p>
+            <p style={{cursor: "default", fontFamily: "Comfortaa", fontWeight: "700"}}>Developed by Jatin Ghind</p>
             <div className="m-4">
                 <button className={`btn btn-outline-${props.btnMode} m-1 my-2`} onClick={githubLink} title="Reverse Content">
                     <i className="fa-brands fa-github"></i>

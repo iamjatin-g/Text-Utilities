@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn {
+  font-family: "Comfortaa";
+  font-size: 14px;
+  font-weight: 700;
+}

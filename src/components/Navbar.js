@@ -8,17 +8,17 @@ export default function Navbar(props) {
                     <button className={`btn btn-outline-${props.btnMode} mx-3`}>
                     <i className="fa-solid fa-t"><i className="fa-solid fa-u"></i></i>
                     </button>
-                    {props.title}
+                    <strong style={{fontFamily: "Comfortaa", fontWeight: "700"}}>{props.title}</strong>
                 </span>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className="nav-link">
+                        <a className="nav-link" href="/">
                             <button type="button" className={`btn btn-outline-${props.btnMode} mx-3`}>Utilities</button>
                         </a>
-                        <a className="nav-link">
+                        <a className="nav-link" href="/">
                             <button type="button" className={`btn btn-outline-${props.btnMode} mx-3`}>Typing Test</button>
                         </a>
                         {/* <a className="nav-link" href="/">
